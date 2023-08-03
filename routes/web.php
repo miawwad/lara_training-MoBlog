@@ -33,12 +33,13 @@ Route::get('/', function () {
     ]); //view is smth the user sees
     //matches posts in views file and don't need to do posts.blade.php
 });
-
-Route::get('posts/{post}',function($slug) {
+// why does putting Post $post work, istead of id?
+//becuase when you type hint laravel automatically figures out what you are trying to do by matching it with the wildcard name.
+Route::get('posts/{post:slug}',function(Post $post) {
     //find a post by it's slug and pass it to a view called "post"
 
     return view('post', [
-        'post'=> Post::findOrFail($slug)
+        'post'=> $post
     ]);
     //for this to work we need a class of post, which we create inside app folder, inside models
 });

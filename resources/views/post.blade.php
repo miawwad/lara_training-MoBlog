@@ -8,6 +8,11 @@
     it can aslo be written as {{$post->title}} which is a blade extension only-->
     {{$post->title}}
     </h1>
+
+            <p>
+                <a href="#">{{$post->category->name}}</a>
+            </p>
+
        <div>
         <!-- {{$post->body}} like this it is being escaped we want it treated like html so we do -->
         {!! $post->body!!}
