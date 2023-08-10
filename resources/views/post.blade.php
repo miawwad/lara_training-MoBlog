@@ -19,7 +19,7 @@
     </div>
     </article>
     
-    <a href="/">Go Back</a>
+    <a href="/categories/{{$post->category->id}}">Go Back</a>
 
 </x-layout>
 <!-- always work with layout files like dis, more effeciant and stuff -->
