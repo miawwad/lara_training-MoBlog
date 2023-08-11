@@ -30,7 +30,7 @@ Route::get('/', function () {
     // },$files);
 
     return view('posts',[
-        'posts' => Post::all()
+        'posts' => Post::with('category')->get()
     ]); //view is smth the user sees
     //matches posts in views file and don't need to do posts.blade.php
 });
@@ -45,7 +45,7 @@ Route::get('posts/{post:slug}',function(Post $post) {
     //for this to work we need a class of post, which we create inside app folder, inside models
 });
 
-Route::get('categories/{category}', function (Category $category){
+Route::get('categories/{category:slug}', function (Category $category){
     return view('posts', [
         'posts'=> $category->posts
     ]);
